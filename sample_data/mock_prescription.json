@@ -1,0 +1,8 @@
+{
+  "drug_name": "Humira (adalimumab)",
+  "dosage": "40mg/0.4mL subcutaneous injection",
+  "diagnosis_code": "M06.9 (Rheumatoid arthritis, unspecified)",
+  "quantity": "2 pens every 28 days (one injection every other week)",
+  "prescriber_name": "Dr. Jane Alvarez, Rheumatology (synthetic/test)",
+  "patient_name": "Test Patient (synthetic/test — not a real individual)"
+}

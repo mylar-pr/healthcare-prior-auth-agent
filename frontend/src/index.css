@@ -1,0 +1,166 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #0f1117;
+  color: #e6e8ec;
+}
+
+.app {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 24px 16px 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-height: 100vh;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  color: #9aa1ac;
+  margin-top: 0;
+  font-size: 0.9rem;
+}
+
+.panel {
+  background: #14161f;
+  border: 1px solid #22252f;
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+
+.panel h2 {
+  font-size: 1.05rem;
+  margin: 0 0 12px;
+}
+
+.plan-form, .rx-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+textarea, input[type="text"] {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #2a2d36;
+  background: #171922;
+  color: #e6e8ec;
+  font-size: 0.92rem;
+  font-family: inherit;
+}
+
+textarea:focus, input[type="text"]:focus {
+  outline: 2px solid #5b8def;
+}
+
+.file-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #9aa1ac;
+  font-size: 0.85rem;
+}
+
+.file-row input[type="file"] {
+  color: #9aa1ac;
+  font-size: 0.85rem;
+}
+
+.filename {
+  color: #a9dcbb;
+}
+
+.rx-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.rx-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.8rem;
+  color: #9aa1ac;
+}
+
+button {
+  align-self: flex-start;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  background: #5b8def;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+button:disabled {
+  background: #33384a;
+  cursor: not-allowed;
+}
+
+.error-banner {
+  background: #3a1e22;
+  border: 1px solid #7a3540;
+  color: #f0a3ac;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-top: 12px;
+  font-size: 0.9rem;
+}
+
+.session-banner {
+  background: #16241c;
+  border: 1px solid #2d5940;
+  color: #a9dcbb;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-top: 12px;
+  font-size: 0.85rem;
+}
+
+.draft-content {
+  white-space: pre-wrap;
+  line-height: 1.55;
+  font-size: 0.92rem;
+  background: #171a22;
+  border: 1px solid #262a36;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.sources {
+  margin-top: 12px;
+  font-size: 0.78rem;
+  color: #9aa1ac;
+}
+
+.sources summary {
+  cursor: pointer;
+}
+
+.sources ul {
+  margin: 6px 0 0;
+  padding-left: 18px;
+}
+
+.sources .score {
+  color: #5b8def;
+}
+
+.sources code {
+  background: #10121a;
+  padding: 2px 5px;
+  border-radius: 4px;
+}

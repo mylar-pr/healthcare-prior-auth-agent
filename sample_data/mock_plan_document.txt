@@ -1,0 +1,65 @@
+SYNTHETIC HEALTH PLAN — PHARMACY BENEFIT COVERAGE POLICY
+Plan: Meridian Health Value PPO (TEST DATA — not a real insurer)
+Policy Number: SYN-PPO-4471 (fictional)
+Effective Date: 01/01/2026
+
+SECTION 1: GENERAL PRIOR AUTHORIZATION REQUIREMENTS
+
+1.1 All specialty and biologic medications listed in Appendix A require prior
+authorization before dispensing. Requests must include the prescribing
+provider's clinical rationale, relevant diagnosis code(s), and documentation
+of any required step therapy.
+
+1.2 Prior authorization requests are reviewed within 5 business days for
+standard requests and 24 hours for expedited/urgent requests.
+
+SECTION 2: BIOLOGIC AGENTS FOR RHEUMATOLOGIC CONDITIONS
+
+2.1 Adalimumab (Humira) and biosimilars are covered for the following
+diagnoses when criteria in 2.2-2.4 are met:
+  - Rheumatoid arthritis (ICD-10 M05.-, M06.-)
+  - Psoriatic arthritis (ICD-10 L40.5-)
+  - Ankylosing spondylitis (ICD-10 M45.-)
+  - Crohn's disease (ICD-10 K50.-)
+  - Ulcerative colitis (ICD-10 K51.-)
+  - Plaque psoriasis (ICD-10 L40.0)
+
+2.2 Step therapy requirement: Member must have documented trial and
+inadequate response, intolerance, or contraindication to at least one
+conventional disease-modifying antirheumatic drug (csDMARD), such as
+methotrexate, for a minimum of 3 months, UNLESS a contraindication to all
+csDMARDs is documented by the prescriber.
+
+2.3 Quantity limit: Adalimumab is limited to 2 pens or syringes (40mg each)
+per 28-day supply, consistent with FDA-approved dosing of one injection
+every other week. Requests exceeding this quantity require additional
+documentation of medical necessity (e.g. weekly dosing for Crohn's disease
+induction).
+
+2.4 Prescriber requirement: Initial requests must be submitted by, or in
+consultation with, a rheumatologist, gastroenterologist, or dermatologist
+as appropriate to the diagnosis.
+
+SECTION 3: REAUTHORIZATION
+
+3.1 Continuation of therapy requires documentation of clinical response
+(e.g. improvement in tender/swollen joint count, reduction in CDAI/DAS28
+score, or PASI improvement) at the first reauthorization, occurring no
+later than 12 months after initial approval.
+
+3.2 Lack of documented response at reauthorization may result in denial of
+continued coverage pending step-down or alternative therapy discussion.
+
+SECTION 4: EXCLUSIONS
+
+4.1 Cosmetic use of any biologic agent is excluded from coverage under all
+plan tiers.
+
+4.2 Off-label use not supported by CMS-recognized compendia or peer-reviewed
+literature is excluded absent a plan-approved medical exception.
+
+SECTION 5: APPEALS
+
+5.1 Members and prescribers may appeal an adverse determination within 180
+days of notice. Expedited appeals are available when a delay would
+jeopardize the member's health, as certified by the prescriber.
