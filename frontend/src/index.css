@@ -48,7 +48,7 @@ header h1 {
   gap: 10px;
 }
 
-textarea, input[type="text"] {
+textarea, input[type="text"], select {
   padding: 10px 12px;
   border-radius: 8px;
   border: 1px solid #2a2d36;
@@ -58,7 +58,7 @@ textarea, input[type="text"] {
   font-family: inherit;
 }
 
-textarea:focus, input[type="text"]:focus {
+textarea:focus, input[type="text"]:focus, select:focus {
   outline: 2px solid #5b8def;
 }
 
@@ -163,4 +163,77 @@ button:disabled {
   background: #10121a;
   padding: 2px 5px;
   border-radius: 4px;
+}
+
+.checklist-note {
+  color: #9aa1ac;
+  font-size: 0.82rem;
+  margin: -4px 0 12px;
+}
+
+.checklist-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.checklist-table th {
+  text-align: left;
+  color: #9aa1ac;
+  font-weight: 600;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0 10px 8px;
+  border-bottom: 1px solid #22252f;
+}
+
+.checklist-table td {
+  padding: 10px;
+  vertical-align: top;
+  border-bottom: 1px solid #1c1f28;
+  line-height: 1.4;
+}
+
+.checklist-table tr:last-child td {
+  border-bottom: none;
+}
+
+.checklist-table .cite {
+  color: #5b8def;
+}
+
+.status-pill {
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.status-pill.status-met {
+  background: #16241c;
+  color: #a9dcbb;
+  border: 1px solid #2d5940;
+}
+
+.status-pill.status-not_met {
+  background: #3a1e22;
+  color: #f0a3ac;
+  border: 1px solid #7a3540;
+}
+
+.status-pill.status-needs_review {
+  background: #332912;
+  color: #f0cf8a;
+  border: 1px solid #7a5f2a;
+}
+
+.status-pill.status-not_applicable {
+  background: #1c1f28;
+  color: #9aa1ac;
+  border: 1px solid #2a2d36;
 }

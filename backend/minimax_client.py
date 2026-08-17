@@ -22,24 +22,26 @@ MINIMAX_MODEL = os.environ.get("MINIMAX_MODEL", "MiniMax-M2.7")
 MAX_TOOL_ROUNDS = 4
 
 SYSTEM_PROMPT = """You are a prior-authorization drafting agent for a health plan's \
-pharmacy benefit. You are given a prescription (drug, dosage, diagnosis) and retrieved \
-clauses from the patient's insurance plan document, plus a tool to search that plan \
-document further when the retrieved context doesn't cover something you need to check \
-(e.g. step therapy requirements, quantity limits, age restrictions, or diagnosis-specific \
-coverage criteria).
+pharmacy benefit. You are given a prescription (drug, dosage, diagnosis), retrieved \
+clauses from the patient's insurance plan document, and a CRITERIA CHECKLIST that was \
+already evaluated deterministically (by code, not by you) — each item is already \
+"met", "not_met", "needs_review", or "not_applicable", with the plan citation that \
+grounds it. You also have a tool to search the plan document further if you need extra \
+context to explain a checklist item's reasoning.
 
 Rules:
+- The checklist's status values are ground truth — do NOT re-derive, second-guess, or \
+  contradict them. Your job is to narrate the letter around them, not re-judge coverage.
 - Ground every coverage claim in the actual plan text you were shown or fetched via tools.
-  Never invent a plan rule that isn't in the retrieved text.
+  Never invent a plan rule that isn't in the retrieved text or the checklist.
 - Cite the plan document inline using the format (plan_document:start_line-end_line) next \
   to every clause you reference.
 - Produce a formal, structured prior-authorization request letter with these sections: \
   Patient/Prescriber summary (use the fields given, do not invent identifying details), \
-  Medication Requested, Clinical Justification, Plan Coverage Basis (with citations), and \
-  Requested Determination.
-- If the plan document doesn't address something needed (e.g. no explicit step-therapy \
-  clause found), state that plainly rather than guessing, and note it as a gap for the \
-  preparer to confirm manually.
+  Medication Requested, Clinical Justification, Plan Coverage Basis (walk through each \
+  checklist item with its status and citation), and Requested Determination.
+- Any checklist item with status "needs_review" or "not_met" must be called out plainly as \
+  a gap or open issue for the preparer — never present it as satisfied.
 - Be precise and professional; this letter may be submitted to a payer.
 """
 
@@ -61,7 +63,15 @@ def _build_context_block(chunks: list) -> str:
     return "\n\n".join(parts)
 
 
-def draft_prior_auth(prescription: dict, retrieved_chunks: list, session: dict) -> dict:
+def _build_checklist_block(checklist: list) -> str:
+    lines = []
+    for item in checklist:
+        cite = f" ({item['citation']})" if item.get("citation") else ""
+        lines.append(f"- {item['criterion']}: **{item['status'].upper()}** — {item['detail']}{cite}")
+    return "\n".join(lines)
+
+
+def draft_prior_auth(prescription: dict, retrieved_chunks: list, session: dict, checklist: list = None) -> dict:
     client = _client()
 
     rx_summary = (
@@ -73,16 +83,19 @@ def draft_prior_auth(prescription: dict, retrieved_chunks: list, session: dict) 
         f"Patient (synthetic/test): {prescription.get('patient_name', 'not specified')}"
     )
 
+    checklist_block = _build_checklist_block(checklist) if checklist else "(no checklist available)"
+
     messages = [
         {"role": "system", "content": SYSTEM_PROMPT},
         {
             "role": "user",
             "content": (
                 f"Prescription details:\n{rx_summary}\n\n"
+                f"Criteria checklist (already evaluated — treat as ground truth):\n{checklist_block}\n\n"
                 f"Retrieved plan document context:\n{_build_context_block(retrieved_chunks)}\n\n"
-                "Use the search_plan_document tool if you need to check something not "
-                "covered by the retrieved context above (e.g. step therapy, quantity "
-                "limits, exclusions). Otherwise draft the prior-authorization request now."
+                "Use the search_plan_document tool only if you need more supporting context "
+                "for a checklist item's citation. Do not use it to re-evaluate a checklist "
+                "status. Draft the prior-authorization request now."
             ),
         },
     ]

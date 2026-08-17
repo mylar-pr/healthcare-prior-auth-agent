@@ -2,6 +2,13 @@ import { useState } from "react";
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
 
+const STATUS_LABEL = {
+  met: "Met",
+  not_met: "Not met",
+  needs_review: "Needs review",
+  not_applicable: "N/A",
+};
+
 export default function App() {
   const [planText, setPlanText] = useState("");
   const [planFile, setPlanFile] = useState(null);
@@ -15,8 +22,9 @@ export default function App() {
   const [quantity, setQuantity] = useState("");
   const [prescriberName, setPrescriberName] = useState("");
   const [patientName, setPatientName] = useState("");
+  const [stepTherapyDocumented, setStepTherapyDocumented] = useState(""); // "" | "yes" | "no"
 
-  const [draft, setDraft] = useState(null); // {draft, citations, tool_trace}
+  const [draft, setDraft] = useState(null); // {draft, checklist, citations, tool_trace}
   const [drafting, setDrafting] = useState(false);
   const [draftError, setDraftError] = useState(null);
 
@@ -63,6 +71,8 @@ export default function App() {
           quantity: quantity.trim() || null,
           prescriber_name: prescriberName.trim() || null,
           patient_name: patientName.trim() || null,
+          step_therapy_documented:
+            stepTherapyDocumented === "" ? null : stepTherapyDocumented === "yes",
         }),
       });
       const data = await res.json();
@@ -187,6 +197,18 @@ export default function App() {
                 disabled={!session}
               />
             </label>
+            <label>
+              Step therapy documented?
+              <select
+                value={stepTherapyDocumented}
+                onChange={(e) => setStepTherapyDocumented(e.target.value)}
+                disabled={!session}
+              >
+                <option value="">Not indicated</option>
+                <option value="yes">Yes — trial/contraindication on file</option>
+                <option value="no">No — not documented</option>
+              </select>
+            </label>
           </div>
           <button
             type="submit"
@@ -198,9 +220,44 @@ export default function App() {
         {draftError && <div className="error-banner">{draftError}</div>}
       </section>
 
+      {draft && draft.checklist && draft.checklist.length > 0 && (
+        <section className="panel">
+          <h2>3. Coverage checklist</h2>
+          <p className="checklist-note">
+            Evaluated deterministically in code against structured plan criteria — the
+            drafting model narrates these results, it does not re-derive them.
+          </p>
+          <table className="checklist-table">
+            <thead>
+              <tr>
+                <th>Criterion</th>
+                <th>Status</th>
+                <th>Detail</th>
+              </tr>
+            </thead>
+            <tbody>
+              {draft.checklist.map((item, i) => (
+                <tr key={i} className={`status-${item.status}`}>
+                  <td>{item.criterion}</td>
+                  <td>
+                    <span className={`status-pill status-${item.status}`}>
+                      {STATUS_LABEL[item.status] || item.status}
+                    </span>
+                  </td>
+                  <td>
+                    {item.detail}
+                    {item.citation && <span className="cite"> ({item.citation})</span>}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
+      )}
+
       {draft && (
         <section className="panel">
-          <h2>3. Drafted request</h2>
+          <h2>4. Drafted request</h2>
           <div className="draft-content">{draft.draft}</div>
 
           {draft.citations && draft.citations.length > 0 && (

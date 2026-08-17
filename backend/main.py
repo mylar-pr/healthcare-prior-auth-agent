@@ -10,6 +10,7 @@ from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
+import criteria as criteria_mod
 import rag
 from minimax_client import draft_prior_auth
 
@@ -34,6 +35,11 @@ class PrescriptionRequest(BaseModel):
     quantity: Optional[str] = None
     prescriber_name: Optional[str] = None
     patient_name: Optional[str] = None
+    # Whether the preparer already has documentation of a step-therapy trial
+    # (e.g. a prior csDMARD trial) on file. None = not indicated either way,
+    # which routes the step-therapy checklist item to needs_review rather
+    # than silently assuming it's satisfied.
+    step_therapy_documented: Optional[bool] = None
 
 
 @app.get("/health")
@@ -83,13 +89,22 @@ def draft(req: PrescriptionRequest):
         raise HTTPException(500, "MINIMAX_API_KEY is not configured on the server")
 
     query = f"{req.drug_name} {req.dosage} {req.diagnosis_code} prior authorization coverage criteria"
-    retrieved = rag.retrieve(session, query, top_k=6)
+    boost_terms = [req.drug_name, req.diagnosis_code]
+    retrieved = rag.retrieve(session, query, top_k=6, boost_terms=boost_terms)
 
     prescription = req.model_dump()
-    result = draft_prior_auth(prescription, retrieved, session)
+
+    # Structured extraction (constrained LLM call) -> deterministic checklist
+    # (plain Python) -> narrative draft that's handed the checklist as ground
+    # truth. See backend/criteria.py for why this is split into two stages.
+    extracted = criteria_mod.extract_criteria(retrieved)
+    checklist = criteria_mod.check_criteria(extracted, prescription)
+
+    result = draft_prior_auth(prescription, retrieved, session, checklist)
 
     return {
         "draft": result["draft"],
+        "checklist": checklist,
         "citations": [
             {"source": c["source"], "start_line": c["start_line"], "end_line": c["end_line"], "score": c["score"]}
             for c in retrieved

@@ -1,0 +1,28 @@
+HORIZON COMMUNITY HEALTH — DERMATOLOGY BIOLOGIC COVERAGE POLICY
+Plan: Horizon Community Health Value HMO (SYNTHETIC TEST DATA — not a real insurer)
+Policy Number: SYN-HMO-2290 (fictional)
+
+## Coverage Criteria for Ustekinumab (Stelara)
+
+Ustekinumab is covered exclusively for the following diagnoses, confirmed by ICD-10 code:
+  - Plaque psoriasis (ICD-10 L40.0)
+  - Psoriatic arthritis (ICD-10 L40.5-)
+
+No other diagnoses are covered for this drug under this policy. Requests for
+ustekinumab submitted with a diagnosis outside the above list will not be
+approved under this coverage criterion, regardless of other clinical factors.
+
+## Step Therapy
+
+No step therapy is required for ustekinumab under this plan; it may be
+prescribed as first-line biologic therapy for a covered diagnosis.
+
+## Quantity Limits
+
+Ustekinumab 90mg/1mL: limited to 1 syringe per 84-day (12-week) supply,
+consistent with FDA-approved maintenance dosing.
+
+## Prescriber Requirement
+
+Must be prescribed by, or in consultation with, a dermatologist or
+rheumatologist.

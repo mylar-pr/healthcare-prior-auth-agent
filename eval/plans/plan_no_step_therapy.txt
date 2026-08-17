@@ -1,0 +1,24 @@
+CASCADE MUTUAL — RESPIRATORY BIOLOGIC BENEFIT POLICY
+Plan: Cascade Mutual Advantage PPO (SYNTHETIC TEST DATA — not a real insurer)
+Policy Number: SYN-PPO-6634 (fictional)
+
+Section 1 — Dupilumab (Dupixent) Coverage
+
+1.1 Dupilumab is covered for severe asthma with an eosinophilic phenotype or
+oral corticosteroid-dependent asthma (ICD-10 J45.5-, J45.4-), and for
+moderate-to-severe atopic dermatitis (ICD-10 L20.-), when prescribed by or in
+consultation with a pulmonologist, allergist/immunologist, or dermatologist.
+
+1.2 No step therapy is required for dupilumab under this policy — it is
+approved as an add-on biologic without a mandatory trial of another
+controller therapy first, given its distinct mechanism of action.
+
+1.3 Quantity limit: 2 pens (300mg each) per 28-day supply, matching the
+FDA-approved every-other-week maintenance dosing after the initial loading
+dose.
+
+Section 2 — Exclusions
+
+2.1 Use for mild, well-controlled asthma is excluded.
+2.2 Use outside the FDA-approved age range for the specific indication is
+excluded absent a documented medical exception.

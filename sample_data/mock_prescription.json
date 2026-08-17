@@ -4,5 +4,6 @@
   "diagnosis_code": "M06.9 (Rheumatoid arthritis, unspecified)",
   "quantity": "2 pens every 28 days (one injection every other week)",
   "prescriber_name": "Dr. Jane Alvarez, Rheumatology (synthetic/test)",
-  "patient_name": "Test Patient (synthetic/test — not a real individual)"
+  "patient_name": "Test Patient (synthetic/test — not a real individual)",
+  "step_therapy_documented": null
 }

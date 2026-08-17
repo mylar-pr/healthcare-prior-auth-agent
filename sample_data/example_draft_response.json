@@ -1,29 +1,67 @@
 {
-    "draft": "# PRIOR AUTHORIZATION REQUEST\n\n---\n\n## PATIENT & PRESCRIBER SUMMARY\n\n| Field | Detail |\n|-------|--------|\n| **Patient Name** | Test Patient |\n| **Date of Birth** | [On file with plan] |\n| **Member/Policy Number** | SYN-PPO-4471 |\n| **Plan** | Meridian Health Value PPO |\n| **Prescriber** | Dr. Jane Alvarez, MD |\n| **Specialty** | Rheumatology |\n| **Request Date** | [Current date] |\n| **Urgency** | Standard |\n\n---\n\n## MEDICATION REQUESTED\n\n| Item | Detail |\n|------|--------|\n| **Drug Name** | Adalimumab (Humira) |\n| **Strength/Formulation** | 40mg/0.4mL subcutaneous injection (pen) |\n| **Quantity Requested** | 2 pens per 28-day supply |\n| **Duration** | Initial authorization (reauthorization at 12 months) |\n| **Diagnosis** | M06.9 \u2013 Rheumatoid arthritis, unspecified |\n\n---\n\n## CLINICAL JUSTIFICATION\n\nThe patient has been diagnosed with rheumatoid arthritis (RA), a chronic inflammatory arthropathy characterized by progressive joint destruction, pain, and functional impairment. Adalimumab, a tumor necrosis factor-alpha (TNF-\u03b1) inhibitor, is a FDA-approved biologic therapy for RA that works by neutralizing TNF-\u03b1, a key cytokine driving the inflammatory cascade in this disease.\n\n**Rationale for Adalimumab:**\n- RA causes significant morbidity and can lead to irreversible joint damage if left inadequately treated.\n- The prescribed dosage of 2 pens (40mg each) every 28 days represents the standard FDA-approved dosing regimen of one 40mg injection every other week.\n- Adalimumab is recognized in clinical guidelines (including ACR/EULAR recommendations) as an appropriate treatment for moderate-to-severe RA, particularly when conventional therapies have been insufficient.\n\n---\n\n## PLAN COVERAGE BASIS\n\n### Eligibility of Diagnosis\nThe patient's diagnosis code M06.9 (Rheumatoid arthritis, unspecified) falls within the ICD-10 range M05.- through M06.-, which is explicitly listed as a covered indication for adalimumab under **Section 2.1** of the plan document:\n\n> \"Adalimumab (Humira) and biosimilars are covered for the following diagnoses when criteria in 2.2-2.4 are met: ... Rheumatoid arthritis (ICD-10 M05.-, M06.-)\" *(plan_document:5-8)*\n\n### Quantity Limit Compliance\nThe requested quantity of 2 pens per 28-day supply is consistent with the plan's quantity limit under **Section 2.3**:\n\n> \"Quantity limit: Adalimumab is limited to 2 pens or syringes (40mg each) per 28-day supply, consistent with FDA-approved dosing of one injection every other week.\" *(plan_document:17-20)*\n\nThe requested quantity **matches exactly** the plan's specified limit.\n\n### Prescriber Requirement Compliance\nThe request is submitted by Dr. Jane Alvarez, a rheumatologist, satisfying the prescriber requirement under **Section 2.4**:\n\n> \"Prescriber requirement: Initial requests must be submitted by, or in consultation with, a rheumatologist, gastroenterologist, or dermatologist as appropriate to the diagnosis.\" *(plan_document:21-24)*\n\n### Step Therapy Requirement \u2013 DOCUMENTATION GAP\n**Section 2.2** states:\n\n> \"Step therapy requirement: Member must have documented trial and inadequate response, intolerance, or contraindication to at least one conventional disease-modifying antirheumatic drug (csDMARD), such as methotrexate, for a minimum of 3 months, UNLESS a contraindication to all csDMARDs is documented by the prescriber.\" *(plan_document:11-16)*\n\n**Status:** The retrieved plan context and available documentation do not include evidence of the patient's prior trial of a csDMARD (e.g., methotrexate) for at least 3 months with inadequate response or intolerance. The request also does not include documentation of a universal contraindication to all csDMARDs.\n\n> **Gap for Manual Verification:** The step therapy criterion has not been demonstrated in the materials provided. The prescribing physician must provide documentation of:\n> - A minimum 3-month trial of at least one csDMARD (such as methotrexate) with documented inadequate response, intolerance, or contraindication; **OR**\n> - Documentation of a contraindication to *all* csDMARDs.\n\n### General Prior Authorization Requirements\nPer **Section 1.1**, all specialty and biologic medications require prior authorization with clinical rationale, relevant diagnosis codes, and documentation of step therapy. This request includes the relevant diagnosis code and clinical rationale; **step therapy documentation must be supplemented** as noted above.\n\n---\n\n## REQUESTED DETERMINATION\n\nBased on the foregoing, we respectfully request **APPROVAL** of the prior authorization for Adalimumab (Humira) 40mg/0.4mL subcutaneous injection, 2 pens per 28-day supply, for the indication of Rheumatoid Arthritis (M06.9).\n\n**Condition of Approval:**\nThe approval is contingent upon receipt and review of step therapy documentation as required under Section 2.2 of the plan policy. The prescriber is prepared to furnish:\n- Records of prior csDMARD therapy (e.g., methotrexate) with dates, dosing, and clinical outcome; or\n- Documentation of contraindication(s) to all conventional DMARDs.\n\n**Reauthorization:** Per Section 3.1, continuation of therapy will require documentation of clinical response (e.g., improvement in tender/swollen joint count, DAS28/CDAI reduction) at the first reauthorization, no later than 12 months after initial approval.\n\n---\n\n**Submitted by:** [Prescribing Office/PA Preparer]  \n**Date:** [Current Date]  \n**Contact for Questions:** [Prescriber Office Phone/Fax]\n\n---\n\n*This prior authorization request has been prepared based on the patient's insurance plan document (Meridian Health Value PPO, Policy No. SYN-PPO-4471). All cited sections reference the retrieved plan document. Any plan rules not addressed in this document should be confirmed with the plan administrator prior to submission.*",
+    "draft": "# PRIOR AUTHORIZATION REQUEST\n\n---\n\n## PATIENT AND PRESCRIBER SUMMARY\n\n| Field | Information |\n|-------|-------------|\n| **Patient Name** | Test Patient (synthetic/test) |\n| **Member ID** | [To be completed] |\n| **Date of Birth** | [To be completed] |\n| **Prescriber** | Dr. Jane Alvarez, Rheumatology |\n| **Prescribing Provider Specialty** | Rheumatology |\n| **Date of Request** | [To be completed] |\n\n---\n\n## MEDICATION REQUESTED\n\n| Field | Information |\n|-------|-------------|\n| **Medication Name** | Humira (adalimumab) |\n| **Strength/Formulation** | 40mg/0.4mL subcutaneous injection |\n| **Dosage Regimen** | 40mg every other week |\n| **Quantity Requested** | 2 pens per 28-day supply |\n| **Route of Administration** | Subcutaneous injection |\n| **Diagnosis** | Rheumatoid arthritis, unspecified (ICD-10: M06.9) |\n\n---\n\n## CLINICAL JUSTIFICATION\n\nHumira (adalimumab) is requested for the treatment of rheumatoid arthritis (RA), a chronic inflammatory autoimmune condition characterized by progressive joint destruction, pain, and functional impairment. The patient has been evaluated by a rheumatologist and meets clinical criteria for biologic therapy.\n\nAdalimumab is a tumor necrosis factor (TNF) inhibitor that reduces inflammation by binding to TNF-\u03b1, a key cytokine in the inflammatory cascade of rheumatoid arthritis. The requested dosing of 40mg every other week is consistent with the FDA-approved dosing regimen for RA and falls within the plan's defined quantity limits.\n\nThe prescriber has determined that this therapy is medically necessary based on the patient's diagnosis, disease severity, and appropriate specialty evaluation.\n\n---\n\n## PLAN COVERAGE BASIS\n\nThe requested medication and regimen have been evaluated against the patient's plan benefits for specialty and biologic medications under Section 2 of the plan document. The following criteria apply:\n\n### Diagnosis Coverage \u2014 **MET**\n\nThe plan document specifies that adalimumab (Humira) and biosimilars are covered for rheumatoid arthritis (ICD-10 M05.-, M06.-) when all applicable criteria are met (mock_plan_document.txt:18-26). The patient's diagnosis of rheumatoid arthritis, unspecified (ICD-10: M06.9) falls within the covered diagnosis range, satisfying this criterion.\n\n### Step Therapy \u2014 **NEEDS REVIEW**\n\nThe retrieved plan document context does not include provisions addressing step therapy requirements for adalimumab. While Section 1.1 of the plan document states that requests must include \"documentation of any required step therapy\" (mock_plan_document.txt:8-12), no specific step therapy protocol for rheumatoid arthritis or this medication class was identified in the available sections. This item requires further review by the plan administrator to determine whether step therapy applies and, if so, what documentation is required.\n\n> **Open Issue:** Step therapy requirements have not been established in the retrieved plan document context. The preparer should confirm whether step therapy is applicable for this request and, if so, obtain the necessary documentation from the prescriber.\n\n### Quantity Limit \u2014 **MET**\n\nThe plan document establishes a quantity limit of 2 pens or syringes (40mg each) per 28-day supply, consistent with FDA-approved dosing of one injection every other week (mock_plan_document.txt:33-38). The requested quantity of 2 pens every 28 days aligns precisely with this limit, satisfying the quantity restriction criterion.\n\n### Prescriber Requirement \u2014 **MET**\n\nThe plan document requires that initial requests for adalimumab be submitted by, or in consultation with, a rheumatologist, gastroenterologist, or dermatologist, as appropriate to the diagnosis (mock_plan_document.txt:39-42). The prescriber of record is a rheumatologist, which satisfies the specialty requirement for a rheumatoid arthritis indication.\n\n---\n\n## REQUESTED DETERMINATION\n\nBased on the foregoing evaluation, the following coverage determination is requested:\n\n| Criterion | Status |\n|-----------|--------|\n| Diagnosis Coverage | MET |\n| Step Therapy | NEEDS REVIEW |\n| Quantity Limit | MET |\n| Prescriber Requirement | MET |\n\n**Preliminary Assessment:** Three of four evaluated criteria are satisfied. Coverage may be provisionally approved pending resolution of the step therapy review item.\n\n**Action Requested:** Please confirm whether step therapy requirements apply to this request. If step therapy is required, the prescriber is prepared to provide documentation of any prior therapies trialed or to provide clinical justification for bypassing step therapy requirements based on medical necessity. Upon resolution of this open item, coverage approval is respectfully requested.\n\n---\n\n**Preparer Notes:**\n- This letter is based solely on the retrieved plan document sections and checklist provided.\n- No additional plan provisions beyond those cited have been assumed or invented.\n- Step therapy documentation gap must be resolved before final authorization can be issued.\n\n---\n\n*This prior authorization request was prepared in accordance with the patient's applicable pharmacy benefit plan. All citations refer to the patient's plan document (mock_plan_document.txt).*",
+    "checklist": [
+        {
+            "criterion": "Diagnosis coverage",
+            "status": "met",
+            "detail": "Diagnosis M06 matches covered prefixes: M05, M06, L40.5, M45, K50, K51, L40.0.",
+            "citation": "mock_plan_document.txt:18-26"
+        },
+        {
+            "criterion": "Step therapy",
+            "status": "needs_review",
+            "detail": "Plan document did not address step therapy for this drug in the retrieved context.",
+            "citation": ""
+        },
+        {
+            "criterion": "Quantity limit",
+            "status": "met",
+            "detail": "Requested quantity ('2 pens every 28 days (one injection every other week)') is within the plan limit ('2 pens or syringes (40mg each) per 28-day supply').",
+            "citation": "mock_plan_document.txt:33-38"
+        },
+        {
+            "criterion": "Prescriber requirement",
+            "status": "met",
+            "detail": "Prescriber field matches one of the required specialties (rheumatologist, gastroenterologist, dermatologist).",
+            "citation": "mock_plan_document.txt:39-42"
+        }
+    ],
     "citations": [
         {
             "source": "mock_plan_document.txt",
-            "start_line": 1,
-            "end_line": 25,
-            "score": 0.6914259195327759
+            "start_line": 18,
+            "end_line": 26,
+            "score": 0.641883373260498
         },
         {
             "source": "mock_plan_document.txt",
-            "start_line": 20,
-            "end_line": 44,
-            "score": 0.5738192200660706
+            "start_line": 33,
+            "end_line": 38,
+            "score": 0.5319702625274658
+        },
+        {
+            "source": "mock_plan_document.txt",
+            "start_line": 16,
+            "end_line": 17,
+            "score": 0.5053000450134277
         },
         {
             "source": "mock_plan_document.txt",
             "start_line": 39,
-            "end_line": 63,
-            "score": 0.45281678438186646
+            "end_line": 42,
+            "score": 0.42913830280303955
         },
         {
             "source": "mock_plan_document.txt",
-            "start_line": 58,
-            "end_line": 65,
-            "score": 0.24283786118030548
+            "start_line": 45,
+            "end_line": 49,
+            "score": 0.35014694929122925
+        },
+        {
+            "source": "mock_plan_document.txt",
+            "start_line": 8,
+            "end_line": 12,
+            "score": 0.33572447299957275
         }
     ],
     "tool_trace": []

@@ -1,0 +1,92 @@
+[
+  {
+    "name": "rheumatoid_arthritis_gap_flagged",
+    "description": "Baseline demo case: all deterministic criteria met except step therapy, which has no documentation flag and must route to needs_review rather than be assumed met.",
+    "plan_file": "../sample_data/mock_plan_document.txt",
+    "prescription": {
+      "drug_name": "Humira (adalimumab)",
+      "dosage": "40mg/0.4mL subcutaneous injection",
+      "diagnosis_code": "M06.9",
+      "quantity": "2 pens every 28 days",
+      "prescriber_name": "Dr. Jane Alvarez, Rheumatology",
+      "step_therapy_documented": null
+    },
+    "expected": {
+      "Diagnosis coverage": "met",
+      "Step therapy": "needs_review",
+      "Quantity limit": "met",
+      "Prescriber requirement": "met"
+    }
+  },
+  {
+    "name": "rheumatoid_arthritis_step_therapy_documented",
+    "description": "Same plan/prescription as above, but the preparer indicates step therapy IS documented — should flip to met.",
+    "plan_file": "../sample_data/mock_plan_document.txt",
+    "prescription": {
+      "drug_name": "Humira (adalimumab)",
+      "dosage": "40mg/0.4mL subcutaneous injection",
+      "diagnosis_code": "M06.9",
+      "quantity": "2 pens every 28 days",
+      "prescriber_name": "Dr. Jane Alvarez, Rheumatology",
+      "step_therapy_documented": true
+    },
+    "expected": {
+      "Diagnosis coverage": "met",
+      "Step therapy": "met",
+      "Quantity limit": "met",
+      "Prescriber requirement": "met"
+    }
+  },
+  {
+    "name": "diagnosis_not_covered",
+    "description": "Ustekinumab requested for a diagnosis (rheumatoid arthritis) outside the plan's covered list (psoriasis/psoriatic arthritis only).",
+    "plan_file": "plans/plan_wrong_diagnosis.txt",
+    "prescription": {
+      "drug_name": "Stelara (ustekinumab)",
+      "dosage": "90mg/1mL subcutaneous injection",
+      "diagnosis_code": "M06.9",
+      "quantity": "1 syringe every 84 days",
+      "prescriber_name": "Dr. Alex Kim, Dermatology",
+      "step_therapy_documented": null
+    },
+    "expected": {
+      "Diagnosis coverage": "not_met"
+    }
+  },
+  {
+    "name": "step_therapy_not_required",
+    "description": "Plan explicitly states no step therapy is required for this drug — checklist should read not_applicable, not needs_review, even with no documentation flag set.",
+    "plan_file": "plans/plan_no_step_therapy.txt",
+    "prescription": {
+      "drug_name": "Dupixent (dupilumab)",
+      "dosage": "300mg/2mL subcutaneous injection",
+      "diagnosis_code": "J45.52",
+      "quantity": "2 pens every 28 days",
+      "prescriber_name": "Dr. Priya Nair, Pulmonology",
+      "step_therapy_documented": null
+    },
+    "expected": {
+      "Diagnosis coverage": "met",
+      "Step therapy": "not_applicable",
+      "Quantity limit": "met"
+    }
+  },
+  {
+    "name": "quantity_exceeds_limit",
+    "description": "Requested quantity (5 vials) clearly exceeds the plan's stated limit (2 vials per cycle) — should resolve to not_met, not a false 'met'.",
+    "plan_file": "plans/plan_strict_quantity.txt",
+    "prescription": {
+      "drug_name": "Remicade (infliximab)",
+      "dosage": "100mg vial, IV infusion",
+      "diagnosis_code": "K50.9",
+      "quantity": "5 vials every 8 weeks",
+      "prescriber_name": "Dr. Sam Ortiz, Gastroenterology",
+      "step_therapy_documented": true
+    },
+    "expected": {
+      "Diagnosis coverage": "met",
+      "Quantity limit": "not_met",
+      "Prescriber requirement": "met"
+    }
+  }
+]

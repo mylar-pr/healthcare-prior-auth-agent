@@ -1,0 +1,26 @@
+GRANITE STATE HEALTH ALLIANCE — GI BIOLOGIC BENEFIT POLICY
+Plan: Granite State Alliance EPO (SYNTHETIC TEST DATA — not a real insurer)
+Policy Number: SYN-EPO-7712 (fictional)
+
+SECTION 1: INFLIXIMAB (REMICADE) COVERAGE
+
+1.1 Infliximab is covered for moderate-to-severe Crohn's disease (ICD-10
+K50.-) and ulcerative colitis (ICD-10 K51.-) confirmed by a
+gastroenterologist.
+
+1.2 Step therapy requirement: documented trial and inadequate response to at
+least one conventional therapy (e.g. corticosteroids or an immunomodulator
+such as azathioprine) for a minimum of 8 weeks, unless contraindicated.
+
+1.3 Quantity limit: infliximab is limited to 2 vials (100mg each) per 8-week
+infusion cycle after the induction series (weeks 0, 2, 6). Requests
+exceeding this quantity require additional documentation of
+dose-intensification medical necessity.
+
+1.4 Prescriber requirement: must be prescribed by, or in consultation with,
+a gastroenterologist.
+
+SECTION 2: EXCLUSIONS
+
+2.1 Self-administration is excluded; infliximab must be administered via
+infusion in a licensed clinical setting.
